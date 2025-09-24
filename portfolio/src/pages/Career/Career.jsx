@@ -1,0 +1,10 @@
+function Career() {
+  return (
+    <div>
+      <h2>Career</h2>
+      <p>실무 경험 및 자격증이 들어갈 페이지입니다.</p>
+    </div>
+  );
+}
+
+export default Career;

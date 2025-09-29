@@ -1,20 +1,22 @@
 import { projects } from "../data/projects";
 
-function Projects({ filter }) {
-  let list;
-  if (!filter) {
-    list = projects;
-  } else {
-    const key = String(filter).toLowerCase();
-    list = projects.filter(p => {
-      const hay = [...(p.stack || []), ...(p.tags || [])].map(x => String(x).toLowerCase());
-      return hay.some(x => x.includes(key));
-    });
-  }
+function matchesAny(project, filters) {
+  if (!filters || filters.length === 0) return true;
+  const hay = [...(project.stack || []), ...(project.tags || [])].map((x) => String(x).toLowerCase());
+  return filters.some((f) => {
+    const key = String(f).toLowerCase();
+    return hay.some((h) => h.includes(key));
+  });
+}
+
+function Projects({ filters = [] }) {
+  const list = projects.filter((p) => matchesAny(p, filters));
 
   return (
     <div>
-      <h2 className="text-lg font-semibold mb-4">Projects {filter ? `— ${filter}` : ""}</h2>
+      <h2 className="text-lg font-semibold mb-4">
+        Projects{filters.length ? ` — ${filters.join(", ")}` : ""}
+      </h2>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {list.map((p) => (
           <a
@@ -26,12 +28,7 @@ function Projects({ filter }) {
           >
             <div className="h-32 bg-[#2a2a31] flex items-center justify-center text-xs opacity-70 overflow-hidden">
               {p.image ? (
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
+                <img src={p.image} alt={p.title} className="h-full w-full object-cover" loading="lazy" />
               ) : (
                 <span>Screenshot Placeholder</span>
               )}
@@ -51,6 +48,9 @@ function Projects({ filter }) {
           </a>
         ))}
       </div>
+      {list.length === 0 && (
+        <div className="text-xs text-gray-400 mt-4">선택한 언어 조합에 해당하는 프로젝트가 없어요.</div>
+      )}
     </div>
   );
 }

@@ -6,7 +6,7 @@ export const experience = [
     title: "Real-time collaboration widget",
     stack: ["React", "WebSocket"],
     detail: "Built a real-time collaboration widget with React + WebSocket.",
-    link: "" // 선택
+    link: "https://www.youtube.com/?app=desktop&hl=ko&gl=KR" // 선택
   },
   {
     date: "2024.11",

@@ -1,0 +1,44 @@
+// Brand-ish background colors for skills (extend freely)
+export const SKILL_COLORS = {
+  // Languages
+  "TypeScript": "#3178C6",
+  "JavaScript": "#F7DF1E",
+  "Python": "#3776AB",
+  "Java": "#EA2D2E",
+  "Kotlin": "#7F52FF",
+  // Frontend libs/frameworks
+  "React": "#61DAFB",
+  "Next.js / React": "#000000",
+  "Next.js": "#000000",
+  "Zustand": "#443E38",
+  "Recoil": "#3578E5",
+  "React-Query": "#FF4154",
+  "Apollo-Client": "#311C87",
+  "React-Hook-Form": "#EC5990",
+  "Sass": "#CC6699",
+  "Tailwind CSS": "#38BDF8",
+  "Emotion": "#D26AC2",
+  "Vite": "#646CFF",
+  // Backend / Server
+  "Django": "#092E20",
+  "Spring (Boot)": "#6DB33F",
+  "Spring": "#6DB33F",
+  "Gradle": "#02303A",
+  "Node.js": "#3C873A",
+  "Express": "#353535",
+  "Firebase": "#FFCA28",
+  "Supabase": "#3ECF8E",
+  // Infra / DevOps / DB
+  "Docker": "#2496ED",
+  "AWS (ECS, EB)": "#FF9900",
+  "AWS": "#FF9900",
+  "Kubernetes": "#326CE5",
+  "Redis": "#DC382D",
+  "Elastic Search": "#2BB3A8",
+  "Elasticsearch": "#2BB3A8",
+  "Vercel": "#000000",
+  // Tools
+  "VS Code": "#007ACC",
+  "pnpm": "#F69220",
+  "Figma": "#F24E1E"
+};

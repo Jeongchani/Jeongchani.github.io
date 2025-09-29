@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Explorer from "./Explorer";
 import MainContent from "./MainContent";
 
 function Layout() {
   const [activeFile, setActiveFile] = useState("AboutMe.jsx");
   const [selectedLanguages, setSelectedLanguages] = useState([]);
+
+  // 다른 페이지로 이동하면 언어 탭 초기화
+  useEffect(() => {
+    if (activeFile !== "Projects/index.tsx" && selectedLanguages.length) {
+      setSelectedLanguages([]);
+    }
+  }, [activeFile]);
 
   return (
     <div className="flex h-screen bg-[#1e1e1e] text-gray-200 font-mono">
@@ -18,15 +25,19 @@ function Layout() {
 
       {/* Main */}
       <div className="flex-1 flex flex-col">
-        {/* Top bar with accumulating language tabs */}
-        <div className="h-9 bg-[#2d2d2d] border-b border-black/30 flex items-center px-3 text-xs text-gray-300 overflow-x-auto">
-          <div className="mr-4">portfolio</div>
-          <div className="opacity-60 mr-2">{activeFile}</div>
+        {/* Top bar: VS Code 스타일 탭 */}
+        <div className="h-9 bg-[#2d2d2d] border-b border-black/30 flex items-stretch px-3 text-xs text-gray-300 overflow-x-auto">
+          <div className="mr-4 flex items-center">portfolio</div>
+          <div className="opacity-60 mr-2 flex items-center">{activeFile}</div>
 
-          <div className="flex items-center gap-2">
+          {/* 누적 언어 탭들 */}
+          <div className="flex items-stretch gap-[1px]">
             {selectedLanguages.map((lang) => (
-              <div key={lang} className="inline-flex items-center gap-2 rounded bg-[#1f1f1f] border border-white/10 px-2 py-0.5">
-                <span>{lang}</span>
+              <div
+                key={lang}
+                className="h-full inline-flex items-center gap-2 px-3 border border-white/10 border-b-0 bg-[#1f1f1f] hover:bg-[#232323]"
+              >
+                <span className="whitespace-nowrap">{lang}</span>
                 <button
                   className="opacity-70 hover:opacity-100"
                   onClick={() => {

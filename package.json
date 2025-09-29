@@ -11,6 +11,9 @@
     "tailwind:init": "tailwindcss init -p"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/noto-sans-kr": "^5.2.8",
     "@tailwindcss/vite": "^4.1.13",
     "framer-motion": "^12.23.19",
     "react": "^19.1.1",

@@ -1,5 +1,15 @@
+// src/sections/Skills.jsx
 import { skills } from "../data/skills";
 import { SKILL_COLORS } from "../data/skillColors";
+
+const ORDER = ["Languages", "Frontend", "Backend", "Server & Security", "DevOps"];
+const LABELS = {
+  Languages: "언어 (Languages)",
+  Frontend: "프론트엔드 (Frontend)",
+  Backend: "백엔드 (Backend)",
+  "Server & Security": "서버 · 보안 (Server & Security)",
+  DevOps: "데브옵스 (DevOps)"
+};
 
 function getReadableText(bgHex) {
   const hex = (bgHex || "").replace("#","");
@@ -34,13 +44,16 @@ function CategoryGrid({ title, items }) {
 }
 
 export default function Skills() {
-  const categories = Object.keys(skills);
+  const ordered = ORDER.filter((k) => skills[k]).concat(
+    Object.keys(skills).filter((k) => !ORDER.includes(k))
+  );
+
   return (
     <div>
       <h2 className="text-lg font-semibold mb-4">Skills</h2>
       <div className="space-y-4">
-        {categories.map((cat) => (
-          <CategoryGrid key={cat} title={cat} items={skills[cat]} />
+        {ordered.map((cat) => (
+          <CategoryGrid key={cat} title={LABELS[cat] || cat} items={skills[cat]} />
         ))}
       </div>
     </div>

@@ -1,4 +1,23 @@
 @import "tailwindcss";
 
+/* 폰트 스택 */
+:root{
+  --font-sans: "Inter Variable","Noto Sans KR",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Apple SD Gothic Neo","Noto Sans",sans-serif;
+  --font-mono: "JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
 
+/* 전역 적용 */
+html,body{
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
+/* 코드/터미널에서 쓰는 헬퍼 */
+.mono{ font-family: var(--font-mono); }
+
+/* (선택) 공통 패널 클래스들 — 일반 CSS로 작성하면 v4에서도 경고 없음 */
+.panel{ border-radius:8px; border:1px solid rgba(0,0,0,.2); background:#101214; overflow:hidden; }
+.panel__title{ font-size:11px; text-transform:uppercase; letter-spacing:.2em; padding:.5rem .75rem; border-bottom:1px solid rgba(255,255,255,.1); color:rgba(110,231,183,.9); background:#0d1512; }
+.panel__body{ padding:1rem; font-size:.875rem; }
+.terminal-line{ font-family: var(--font-mono); font-size:13px; color:#A7F3D0; }

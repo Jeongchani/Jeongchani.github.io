@@ -12,10 +12,10 @@ function MainContent({ activeFile, selectedLanguages }) {
       {activeFile === "Skills.json" && <Skills />}
 
       {activeFile === "Projects/index.tsx" && <Projects filters={selectedLanguages} />}
-      
+
       {activeFile === "Experience.md" && <Experience />}
 
-      {activeFile === "Contact.tsx" && <Contact />}
+      {activeFile === "Contact.txt" && <Contact />}
     </main>
   );
 }

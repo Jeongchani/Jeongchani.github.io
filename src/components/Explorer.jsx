@@ -3,17 +3,22 @@ import { useState } from "react";
 function Explorer({ activeFile, setActiveFile, selectedLanguages, setSelectedLanguages }) {
   const [open, setOpen] = useState({ projects: true, languages: true });
 
+  const handleOpen = (file) => {
+    setActiveFile(file);
+    if (file !== "Projects/index.tsx") setSelectedLanguages([]);
+  };
+
   const Item = ({ file, label, onClick }) => (
     <li
       className={`cursor-pointer px-2 py-1 rounded ${activeFile === file ? "bg-[#37373d] text-[#a8d1ff]" : "hover:bg-[#2f2f34]"}`}
-      onClick={onClick || (() => setActiveFile(file))}
+      onClick={onClick || (() => handleOpen(file))}
     >
       {label || file}
     </li>
   );
 
   const addLang = (lang) => {
-    setActiveFile("Projects/index.tsx"); // ensure Projects grid is visible
+    setActiveFile("Projects/index.tsx"); // Projects 그리드 띄우기
     setSelectedLanguages((prev) => (prev.includes(lang) ? prev : [...prev, lang]));
   };
 
@@ -24,8 +29,8 @@ function Explorer({ activeFile, setActiveFile, selectedLanguages, setSelectedLan
         <ul className="space-y-1">
           <Item file="AboutMe.jsx" label="AboutMe.jsx" />
 
-          {/* Skills single */}
-          <Item file="Skills.json" label="Skills.json" />
+          {/* Skills.json */}
+              <Item file="Skills.json" label="Skills.json" />
 
           {/* Projects root */}
           <li
@@ -36,8 +41,9 @@ function Explorer({ activeFile, setActiveFile, selectedLanguages, setSelectedLan
           </li>
           {open.projects && (
             <ul className="ml-5 space-y-1">
-              <Item file="Projects/index.tsx" label="index.tsx (All)" />
-              {/* Languages folder */}
+              <Item file="Projects/index.tsx" label="index.tsx (All)" />         
+
+              {/* Languages */}
               <li
                 className="cursor-pointer px-2 py-1 rounded flex items-center gap-2 text-gray-300 hover:bg-[#2f2f34] select-none"
                 onClick={() => setOpen((s) => ({ ...s, languages: !s.languages }))}
@@ -54,12 +60,10 @@ function Explorer({ activeFile, setActiveFile, selectedLanguages, setSelectedLan
               )}
             </ul>
           )}
-
-          {/* Experience */}
+          {/* Experience.md */}
           <Item file="Experience.md" label="Experience.md" />
-
-          {/* Contact */}
-          <Item file="Contact.tsx" label="Contact.tsx" />
+          {/* Contact.tsx */}
+          <Item file="Contact.txt" label="Contact.txt" />
         </ul>
       </div>
     </aside>

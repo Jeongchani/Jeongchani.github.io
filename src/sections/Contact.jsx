@@ -19,7 +19,7 @@ function Contact() {
           <li>
             <span className="text-gray-400">Email:</span>{" "}
             <a className="text-[#8cc8ff] hover:underline" href="mailto:example@email.com">
-              example@email.com
+              idgachan@gmail.com
             </a>
           </li>
         </ul>

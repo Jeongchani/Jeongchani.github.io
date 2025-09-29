@@ -1,16 +1,32 @@
 export const projects = [
   {
-    id: 1,
-    title: "포트폴리오 웹사이트",
-    description: "React + Vite 기반으로 제작",
-    skills: ["React", "Vite", "TailwindCSS"],
-    link: "https://github.com/jeongchani/portfolio",
+    id: "portfolio",
+    title: "Portfolio Site (VS Code Theme)",
+    period: "2025",
+    stack: ["React", "Vite", "Tailwind"],
+    desc: "My personal portfolio styled like VS Code. Explorer on the left, content on the right.",
+    link: "https://jeongchani.github.io/",
+    repo: "https://github.com/jeongchani/jeongchani.github.io",
+    image: "/assets/portfolio.png"
   },
   {
-    id: 2,
-    title: "Todo App",
-    description: "간단한 할 일 관리 앱",
-    skills: ["React", "Node.js"],
-    link: "https://github.com/jeongchani/todo-app",
+    id: "discord",
+    title: "Discord Bot Monorepo",
+    period: "2024–2025",
+    stack: ["TypeScript", "Discord.js", "pnpm"],
+    desc: "Multi-bot setup (music, moderation, utility) with a clean monorepo structure.",
+    link: "",
+    repo: "",
+    image: "/public/assets/todobar.png"
   },
+  {
+    id: "couple",
+    title: "Couple Widget App",
+    period: "2025",
+    stack: ["Flutter"],
+    desc: "Lightweight mobile app for couples with an interactive home widget.",
+    link: "",
+    repo: "",
+    image: "/assets/couple-app.png"
+  }
 ];

@@ -62,7 +62,7 @@ function Explorer({ activeFile, setActiveFile, selectedLanguages, setSelectedLan
           )}
           {/* Experience.md */}
           <Item file="Experience.md" label="Experience.md" />
-          {/* Contact.tsx */}
+          {/* Contact.txt */}
           <Item file="Contact.txt" label="Contact.txt" />
         </ul>
       </div>
